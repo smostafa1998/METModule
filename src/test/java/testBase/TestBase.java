@@ -4,7 +4,7 @@ import baseAPI.BasePage;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebElement;
 import pom.Homepage;
-import pom.PlanYourVisit;
+import pom.visit.PlanYourVisit;
 
 public class TestBase extends BasePage {
     public Homepage getHomepage() {

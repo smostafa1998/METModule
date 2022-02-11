@@ -8,8 +8,10 @@ import org.testng.asserts.SoftAssert;
 import pom.exhibitionsAndEvents.EventsHomepage;
 import pom.exhibitionsAndEvents.ExhibitionsHomepage;
 import pom.shop.ShopHomepage;
+import pom.visit.PlanYourVisit;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Homepage extends BasePage {
@@ -23,6 +25,12 @@ public class Homepage extends BasePage {
      */
     @FindBy(xpath = "//*[@id=\"homepage-video-banner\"]/div[2]/a")
     public WebElement planYourVisitButton;
+
+    @FindBy(xpath="//*[@id=\"our-locations\"]//div[1]/div/div[2]/a")
+    public WebElement fifthAvenue;
+
+    @FindBy(xpath="//*[@id=\"our-locations\"]//div[2]/div/div[2]/a")
+    public WebElement cloisterLocation;
 
     @FindBy(xpath = "//header/div/div/div[2]//*[@title=\"Search Button\"]")
     public WebElement searchButton;
@@ -39,11 +47,20 @@ public class Homepage extends BasePage {
     @FindBy(xpath = "//*[@data-nav-id=\"visit\"]")
     public WebElement visitTab;
 
+    @FindBy(xpath="//*[@data-subnav-for=\"visit\"]//li/a")
+    public List<WebElement> visitSubTabs;
+
     @FindBy(xpath = "//*[@data-nav-id=\"exhibitions\"]")
     public WebElement exhibitionsAndEventsTab;
 
     @FindBy(xpath = "//*[@href=\"/exhibitions\"]")
     public WebElement exhibitionsTab;
+
+    @FindBy(xpath = "//*[@id=\"exhibitions\"]//div/div/h3/a")
+    public List<WebElement> exhibitionsCarousal;
+
+    @FindBy(xpath="//*[@id=\"exhibitions\"]/div[2]/button[2]")
+    public WebElement nextSlideButton;
 
     @FindBy(xpath = "//*[@href=\"/events/whats-on\"]")
     public WebElement eventsTab;
@@ -124,6 +141,17 @@ public class Homepage extends BasePage {
         //waitForElementToBeVisible(NavButton);
         clickOnElement(shopTab);
         return new ShopHomepage();
+    }
+
+    public List<String> getTabsTitles(){
+        List<String> expectedText = new ArrayList<String>();
+        expectedText.add("Plan Your Visit");
+        expectedText.add("Buy Tickets");
+        expectedText.add("Become a Member");
+        expectedText.add("Museum Map");
+        expectedText.add("Audio Guide");
+        expectedText.add("Group Visits");
+        return expectedText;
     }
 
 

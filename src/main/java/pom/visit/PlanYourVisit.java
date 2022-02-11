@@ -1,4 +1,4 @@
-package pom;
+package pom.visit;
 
 import baseAPI.BasePage;
 import org.openqa.selenium.WebElement;

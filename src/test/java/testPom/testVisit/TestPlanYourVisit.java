@@ -1,9 +1,9 @@
-package testPom;
+package testPom.testVisit;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pom.Homepage;
-import pom.PlanYourVisit;
+import pom.visit.PlanYourVisit;
 import testBase.TestBase;
 
 public class TestPlanYourVisit extends TestBase {
