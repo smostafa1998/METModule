@@ -55,7 +55,7 @@ public class TestMetMuseumResources extends RestAssuredClient {
         response.then().assertThat().statusCode(HttpURLConnection.HTTP_OK);
     }
 
-    @Test(enabled = false)
+    @Test()
     public void testGetSearchwithHighlight() {
         String endpoint = MetMuseumResources.SEARCH;
         String highlight = "?isHighlight=true&q=sunflowers";

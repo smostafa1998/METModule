@@ -12,11 +12,11 @@ import java.io.IOException;
 public class TestShopHomepage extends TestBase {
 
     @Test
-    public void testCategoriesLink(){
+    public void testCategoriesLink() {
         Homepage homepage = getHomepage();
         ShopHomepage shop = homepage.navigateToShopHomepage();
         waitForElementsToBeVisible(shop.categories);
-        database.insertDataFromListToSqlTable(oneDhref(shop.categories),"ShopCategories","Category");
+        database.insertDataFromListToSqlTable(oneDhref(shop.categories), "ShopCategories", "Category");
         String actualText = shop.jewelryText.getText();
         String expectedText = "Jewelry";
         Assert.assertEquals(actualText, expectedText);
@@ -28,6 +28,6 @@ public class TestShopHomepage extends TestBase {
         ShopHomepage shop = homepage.navigateToShopHomepage();
         ShopResultspage shopResults = shop.navigateToShopResultsPage();
         waitForElementsToBeVisible(shopResults.listOfGreekProducts);
-        homepage.assertOneDList(oneDList(shopResults.listOfGreekProducts),"MetStoreT1");
+        homepage.assertOneDList(oneDList(shopResults.listOfGreekProducts), "MetStoreT1");
     }
 }

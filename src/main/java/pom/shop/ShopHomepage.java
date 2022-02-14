@@ -23,6 +23,7 @@ public class ShopHomepage extends BasePage {
     public WebElement jewelryText;
 
 
+
     public ShopResultspage navigateToShopResultsPage(){
         usingReturnButtonForSearch(searchBar,"greek");
         return new ShopResultspage();
