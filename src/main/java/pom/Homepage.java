@@ -23,6 +23,10 @@ public class Homepage extends BasePage {
     /**
      * Put all the MET elements found in homepage
      */
+
+    @FindBy(xpath="//*[@href=\"https://engage.metmuseum.org/admission/?promocode=46070\"]")
+    public WebElement buyTickets;
+
     @FindBy(xpath = "//*[@id=\"homepage-video-banner\"]/div[2]/a")
     public WebElement planYourVisitButton;
 
@@ -115,6 +119,12 @@ public class Homepage extends BasePage {
 
     @FindBy(xpath="//*[@id=\"discover-more-at-the-met\"]/div[2]/div/div/div/a")
     public List<WebElement> moreToExploreNames;
+
+    public Tickets navigateToTickets(){
+        waitForElementToBeVisible(buyTickets);
+        clickOnElement(buyTickets);
+        return new Tickets();
+    }
 
     public PlanYourVisit navigateToVisit() {
         waitForElementToBeVisible(planYourVisitButton);
@@ -218,6 +228,23 @@ public class Homepage extends BasePage {
             linksHREF.add(webElement.getAttribute("href"));
         }
         return linksHREF;
+    }
+
+    public void getDateAndTime(List<WebElement> elementDate,List<WebElement> elementTime){
+        for (WebElement webElement : elementDate) {
+            waitForElementToBeVisible(webElement);
+            if (webElement.isEnabled() == true) {
+                clickJScript(webElement);
+                break;
+            }
+        }
+        for (WebElement webElement : elementTime) {
+            waitForElementToBeVisible(webElement);
+            if (webElement.isEnabled() == true) {
+                clickJScript(webElement);
+                break;
+            }
+        }
     }
 
 

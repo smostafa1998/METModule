@@ -489,6 +489,14 @@ public class BasePage {
         }
     }
 
+    public void canClick(WebElement element){
+        try {
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void fluentWaitMethod(WebElement element) {
         FluentWait<WebDriver> fluentWait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1)).ignoring(StaleElementReferenceException.class);
         // Wait<WebDriver> fluentWait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(1)).ignoring(StaleElementReferenceException.class);
