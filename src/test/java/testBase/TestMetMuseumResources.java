@@ -11,10 +11,11 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 public class TestMetMuseumResources extends RestAssuredClient {
+
     Response response;
     ValidatableResponse validatableResponse;
 
-    @Test(enabled = false)
+    @Test()
     public void testGetObjects() {
         String endpoint = MetMuseumResources.OBJECTS;
         String requestURI = BasePage.API_URL + endpoint;
@@ -23,7 +24,7 @@ public class TestMetMuseumResources extends RestAssuredClient {
         response.then().assertThat().statusCode(HttpURLConnection.HTTP_OK);
     }
 
-    @Test(enabled = false)
+    @Test()
     public void testGetObjectID() {
         String endpoint = MetMuseumResources.OBJECTSID;
         String requestURI = BasePage.API_URL + endpoint;
