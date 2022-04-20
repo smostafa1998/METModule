@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.*;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -93,7 +94,7 @@ public class BasePage {
     //for testNG things
     @Parameters({"browser", "url"})
     @BeforeMethod(alwaysRun = true)
-    public void driverSetup(@Optional("chrome") String browser, @Optional("https://www.metmuseum.org")String url) {
+    public void driverSetup(@Optional("safari") String browser, @Optional("https://www.metmuseum.org")String url) {
         driver = initDriver(browser);
         webDriverWait = new WebDriverWait(driver, 20);
         //url = properties.getProperty("METwebsiteURL");
@@ -140,6 +141,9 @@ public class BasePage {
 
     public WebDriver initDriver(String browser) {
         switch (browser.toLowerCase().trim()) {
+            case "safari":
+                driver = new SafariDriver();
+                break;
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();

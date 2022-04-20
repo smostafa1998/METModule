@@ -13,5 +13,5 @@
     </test>
 
     <parameter name="url" value="https://www.metmuseum.org"/>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="safari"/>
 </suite>
