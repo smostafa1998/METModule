@@ -130,13 +130,12 @@ public class BasePage {
     @AfterMethod
     public void driverClose() {
         driver.close();
-        driver.quit();
-
     }
 
     @AfterSuite(alwaysRun = true)
     private void afterSuiteTearDown() {
        // extent.close();
+        driver.quit();
     }
 
     public WebDriver initDriver(String browser) {
