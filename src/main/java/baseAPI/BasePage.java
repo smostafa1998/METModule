@@ -93,10 +93,10 @@ public class BasePage {
     //for testNG things
     @Parameters({"browser", "url"})
     @BeforeMethod(alwaysRun = true)
-    public void driverSetup(@Optional("chrome") String browser, String url) {
+    public void driverSetup(@Optional("chrome") String browser, @Optional("https://www.metmuseum.org")String url) {
         driver = initDriver(browser);
         webDriverWait = new WebDriverWait(driver, 20);
-        url = properties.getProperty("METwebsiteURL");
+        //url = properties.getProperty("METwebsiteURL");
         driver.get(url);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
