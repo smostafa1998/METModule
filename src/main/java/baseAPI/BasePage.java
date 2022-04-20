@@ -91,7 +91,7 @@ public class BasePage {
     }*/
 
     //for testNG things
-    //@Parameters({"browser", "url"})
+    @Parameters({"browser", "url"})
     @BeforeMethod(alwaysRun = true)
     public void driverSetup(@Optional("chrome") String browser, String url) {
         driver = initDriver(browser);
