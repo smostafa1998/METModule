@@ -1,5 +1,6 @@
 package testPom;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pom.Homepage;
 import testBase.TestBase;
@@ -54,6 +55,22 @@ public class TestHomepage extends TestBase {
         Homepage homepage = new Homepage();
         clickOnElement(homepage.readVisitorGuidelinesLink);
         homepage.assertManualList(oneDList(homepage.vistiorGuidelinesNames), homepage.getVisitorGuidelinesTab());
+    }
+
+    @Test
+    public void testValidEmailinput(){
+        Homepage homepage = new Homepage();
+        clickOnElement(homepage.emailInput);
+        usingReturnButtonForSearch(homepage.emailInput,"smostafa1998@gmail.com");
+        Assert.assertEquals(homepage.confirmationMessage.getText().trim(),"Thank you. Please check your email for a message from us!");
+    }
+
+    @Test
+    public void testInvalidEmail(){
+        Homepage homepage = new Homepage();
+        clickOnElement(homepage.emailInput);
+        usingReturnButtonForSearch(homepage.emailInput,"kjsknsjfnkfjn");
+        Assert.assertEquals(homepage.needValidEmailMessage.getText().trim(),"Email is required.");
     }
 
 }

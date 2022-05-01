@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 import pom.exhibitionsAndEvents.EventsHomepage;
 import pom.exhibitionsAndEvents.ExhibitionsHomepage;
+import pom.learnWithUs.TimelineArtHistoryHomepage;
 import pom.shop.ShopHomepage;
 import pom.visit.PlanYourVisit;
 
@@ -120,6 +121,15 @@ public class Homepage extends BasePage {
     @FindBy(xpath="//*[@id=\"discover-more-at-the-met\"]/div[2]/div/div/div/a")
     public List<WebElement> moreToExploreNames;
 
+    @FindBy(xpath="//*[@id=\"newsletter-email\"]")
+    public WebElement emailInput;
+
+    @FindBy(xpath="//*[@id=\"new-homepage-email-signup\"]/form/div/div/div[2]")
+    public WebElement needValidEmailMessage;
+
+    @FindBy(xpath="//*[@id=\"nas-footer\"]/footer/section[4]/form/p")
+    public WebElement confirmationMessage;
+
     public Tickets navigateToTickets(){
         waitForElementToBeVisible(buyTickets);
         clickOnElement(buyTickets);
@@ -169,6 +179,12 @@ public class Homepage extends BasePage {
         //waitForElementToBeVisible(NavButton);
         clickOnElement(shopTab);
         return new ShopHomepage();
+    }
+
+    public TimelineArtHistoryHomepage navigateToTimeLine(){
+        clickOnElement(learnTab);
+        clickOnElement(timelineOfArtHistoryTab);
+        return new TimelineArtHistoryHomepage();
     }
 
     public List<String> getTabsTitles() {
