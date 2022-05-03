@@ -16,7 +16,7 @@ public class TestTimelineArtHistoryHomepage extends TestBase {
     }
 
     @Test
-    public void testing(){
+    public void testingDropdowns(){
 
     }
 }
