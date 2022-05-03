@@ -19,7 +19,7 @@ public class TestTimelineArtHistoryHomepage extends TestBase {
     public void testingDropdowns(){
         Homepage homepage = getHomepage();
         TimelineArtHistoryHomepage artHistry = homepage.navigateToTimeLine();
-        clickOnElement(artHistry.essaysTab);
+        clickOnElement(artHistry.essaysTab) ;
 
     }
 }
