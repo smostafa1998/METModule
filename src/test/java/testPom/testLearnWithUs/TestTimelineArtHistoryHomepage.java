@@ -20,6 +20,6 @@ public class TestTimelineArtHistoryHomepage extends TestBase {
         Homepage homepage = getHomepage();
         TimelineArtHistoryHomepage artHistry = homepage.navigateToTimeLine();
         clickOnElement(artHistry.essaysTab);
-        System.out.println("here");
+
     }
 }
