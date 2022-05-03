@@ -14,4 +14,9 @@ public class TestTimelineArtHistoryHomepage extends TestBase {
         clickOnElement(artHistry.essaysTab);
         printOutListOfElements(artHistry.essayList);
     }
+
+    @Test
+    public void testing(){
+
+    }
 }
