@@ -70,11 +70,11 @@ public class BasePage {
             e.printStackTrace();
         }
 
-        try{
+        try {
             restAssured = new RestAssuredClient();
             API_URL = properties.getProperty("METAPIWebsite");
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -94,7 +94,7 @@ public class BasePage {
     //for testNG things
     @Parameters({"browser", "url"})
     @BeforeMethod(alwaysRun = true)
-    public void driverSetup(@Optional("safari") String browser, @Optional("https://www.metmuseum.org")String url) {
+    public void driverSetup(@Optional("safari") String browser, @Optional("https://www.metmuseum.org") String url) {
         driver = initDriver(browser);
         webDriverWait = new WebDriverWait(driver, 20);
         //url = properties.getProperty("METwebsiteURL");
@@ -135,7 +135,7 @@ public class BasePage {
 
     @AfterSuite(alwaysRun = true)
     private void afterSuiteTearDown() {
-       // extent.close();
+        // extent.close();
         driver.quit();
     }
 
@@ -202,8 +202,8 @@ public class BasePage {
         element.sendKeys(Keys.DELETE);
     }
 
-    public void usingReturnButtonForSearch(WebElement element,String value){
-        addingKeyboardInput(element,value);
+    public void usingReturnButtonForSearch(WebElement element, String value) {
+        addingKeyboardInput(element, value);
         element.sendKeys(Keys.RETURN);
     }
 
@@ -231,6 +231,17 @@ public class BasePage {
     public void buttonSelect(WebElement element, WebElement selected) {
         clickOnElement(element);
         clickOnElement(selected);
+    }
+
+    public void buttonSelect(WebElement element, String selected) {
+        if (element.getText().equals(selected)) {
+            clickOnElement(element);
+        }
+    }
+
+    public WebElement selectFilterElementByString(String selected) {
+        WebElement temp = driver.findElement(By.xpath("//*[span=\"" + selected + "\"]/span"));
+        return temp;
     }
 
     public void addingKeyboardInput(WebElement element, String value) {
@@ -463,7 +474,6 @@ public class BasePage {
     }
 
 
-
     /*
     SYNC Methods
      */
@@ -492,7 +502,7 @@ public class BasePage {
         }
     }
 
-    public void canClick(WebElement element){
+    public void canClick(WebElement element) {
         try {
             webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (Exception e) {
